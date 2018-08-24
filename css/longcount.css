@@ -15,27 +15,10 @@ body {
   background-attachment: fixed;
   margin: 2vw;
 }
-[class*="col-"] {
-  float: left;
-  width: 100%;
-  font-size: 4vw !important;
-}
-/* @media only screen and (min-width: 500px) {
-  .col-1 {
-     width: 50%;
-      font-size: smaller !important
- }
-  .col-2 {
-     width: 47.5%;
-      margin-left: 2.5%;
-      font-size: smaller !important
- }
-}
-*/
 .table {
   display: table;
   border-collapse: collapse;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
 }
 .table-row {
@@ -204,4 +187,41 @@ select::-ms-expand {
   background: #E3CB70;
   outline: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+[class*="col-"] {
+  float: left;
+  width: 100%;
+  font-size: 4vw !important;
+}
+@media only screen and (min-width: 600px) {
+  .header {
+    padding: 0.5vw;
+  }
+  .header p {
+    font-size: 2.5vw;
+  }
+  .header img {
+    max-height: 4vw;
+  }
+  .button {
+    width: 50%;
+    font-size: 3vw;
+  }
+  .col-1 {
+    width: 50%;
+    margin-right: 1%;
+  }
+  .glyph img {
+    max-height: 7vw;
+  }
+  .increase-button, .decrease-button {
+    min-width: 35%;
+    max-width: 35%;
+    font-size: 2vw;
+    margin: 0;
+  }
+  .col-2 {
+    width: 49%;
+    font-size: 1.5vw !important;
+  }
 }

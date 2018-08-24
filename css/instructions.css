@@ -99,3 +99,26 @@ b {
   outline: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+@media only screen and (min-width: 600px) {
+  body {
+    font-size: 2vw;
+  }
+  .header {
+    padding: 0.5vw;
+  }
+  .header p {
+    font-size: 2.5vw;
+  }
+  .header img {
+    max-height: 4vw;
+  }
+  .main img {
+    transform: translateX(50%);
+    max-width: 50%;
+    border-radius: 3px;
+  }
+  .button {
+    width: 50%;
+    font-size: 3vw;
+  }
+}
