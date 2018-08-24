@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Instructions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/instructions.css" />
+</head>
+<body>
+  <div class="header">
+    <p>Long </p><img src="img/lc_icon.png"><p> Count</p>
+  </div>
+  <div class="main">
+
+    <p> The Classic Maya kept track of historical events using three main calendars. The <span class="label">Long Count</span> represented the number of days ellapsed since the creation of the present Cosmos, which the Maya reckoned to have happened about five thousand years ago. This date was expressed in the vigesimal system, with units of <b>1, 20, 360, 7,200 and 144,000 days</b>. Thus, a date of <span class="input">9.8.9.13.0</span> (the birth of <b>K'inich Janaab Pakal I</b> of Palenque) translates to 1,357,074 days since the creation of the Maya universe.</p>
+
+    <img src="img/panel1.jpg"/>
+
+    <p>In the Long Count app, you can change the date by pressing the <span class="glyph-btns">+</span> and <span class="glyph-btns">-</span> buttons of the corresponding unit on the upper glyph panel. You can also directly input the long count date on the form under the glyphs.</p>
+
+    <p>Besides the Long Count, the Classic Maya used two other calendars called <b>Tzolk'in</b> and <b>Haab</b> - which, together, form the <span class="label">Calendar Round</span>. Unlike the Long Count, these calendars are cyclical, and a date in the Calendar Round will repeat itself every 52 years. The Tzolk'in is a 260-day cycle where each day as a number between 1 and 13 and a name in a sequence of 20 names. It starts with 1 Imix, 2 Ik, 3 Akbal ... until 13 Ben. Because there are more day names than numbers, the next Tzolk'in date will be 1 Ix and then continue until 7 Ahau. The cycle than resumes with 8 Imix, 9 Ik, 10 Akbal and so forth.</p>
+
+    <img src="img/panel2.jpg"/>
+
+    <p>The Haab corresponds to the 365 days of the solar year and is divided into 18 'months' of 20 days (called Pop, Uo, Zip, Zotz ...), plus an additional month of 5 days (called Uayeb). The birth of Janaab Pakal, <span class="input">9.8.9.13.0</span> in the Long Count, corresponds to a Calendar Round of <span class="input">8 Ahau 13 Pop</span>. When you change the Long Count date in the app, the Calendar Round is immediately updated. The date is also automatically converted to the Western calendar.</p>
+
+    <p>In order to perform the conversion, we need a correlation constant that anchors a Maya date in the Western calendar. Mayanists employ a Julian Day Number (a system used by astronomers) as a constant. This expresses the number of days ellapsed between the Julian Day Zero (Jan 1 4713 BCE) and the Maya Long Count <span class="input">0.0.0.0.0</span>. The most common correlation constant used in the literature is 584285, a little correction of Thompson-Goodman-Martinez correlation of 584283. However, more recently, Simon Martin and Joel Skidmore proposed a constant of 584286 that better aligns with astronomical events, and this is the default on the app. You can change that to any other correlation constant if you wish.</p>
+
+    <img src="img/panel3.jpg"/>
+
+    <p>Maya dates are converted to the <span class="label">Gregorian Calendar</span> and to the <span class="label">Julian Calendar</span>. The Gregorian Calendar was only established in 1582. Before that, dates in the Western World were expressed using the Julian Calendar. Any Gregorian date before 1582 is called 'proleptic', because it is merely a projection. The difference between the two calendars is in the treatment of leap years. In the Gregorian Calendar, extra days are added to years exactly divisible by 400, which otherwise would not be leap years. Because this rule did not exist in the Julian Calendar, a difference of <b>10 days</b> had accumulated between the Julian year and the actual solar year in 1582 when the Gregorian Calendar was instituted.</p>
+
+    <img src="img/panel4.jpg"/>
+
+    <p>In the Long Count app, you can input a date in any of the Western Calendars and it will be immediately converted to the Maya Calendar depending on the correlation constant you choose.</p>
+
+    <a class="button" href='index.html'>Menu</a>
+  </div>
+</body>
+</html>

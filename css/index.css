@@ -1,0 +1,74 @@
+* {
+  font-family: 'Open Sans', sans-serif !important;
+  box-sizing: border-box;
+}
+html {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+body {
+  text-align: center;
+  background: url("../img/bgCopan.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  margin: 2vw;
+}
+.header img {
+  display: block;
+  max-width: 14vw;
+  margin: 0 auto;
+}
+h1 {
+  font-variant: small-caps;
+  display: inline-block;
+  margin-top: 0;
+  font-size: 12vw;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  text-shadow: 0px 0px 10px black;
+  margin-bottom: 0;
+}
+h2 {
+  font-size: 5.5vw;
+  text-transform: uppercase;
+  color: white;
+  font-weight: lighter;
+  margin-top: 0;
+  text-shadow: 0px 0px 10px black;
+  text-decoration: overline;
+}
+.menu {
+  margin: 0 auto;
+  text-align: center;
+}
+.button {
+  font-size: 6vw;
+  font-weight: 300;
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin: 10px auto;
+  width: 90%;
+  padding: 2vw;
+  border-radius: 5px;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.5);
+  border: solid 1px white;
+}
+.button:active, .butto:focus {
+  background: #E3CB70;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.button img {
+  display: inline-block;
+  min-height: 7vw;
+  max-height: 7vw;
+  min-width: 7vw;
+  max-width: 7vw;
+  margin-right: 5vw;
+}

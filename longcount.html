@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Maya Long Count</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/longcount.css" />
+  </head>
+  <body>
+    <div class="header">
+      <p>Long </p><img src="img/lc_icon.png"><p> Count</p>
+    </div>
+    <div class="col-1">
+      <div class="widget glyph-panel">
+        <div class="table">
+
+            <div class="table-row">
+              <div class="table-cell glyph-buttons">
+                <button class="decrease-button" data-action="decrease" data-index=0>-</button>
+                <button class="increase-button" data-action="increase" data-index=0>+</button>
+              </div>
+              <div class="table-cell glyph" id="baktun-glyph"><img id="lc-0-coef" src="img/number-0.png"/><img src="img/BAKTUN.png"/></div>
+              <div class="table-cell glyph" id="katun-glyph"><img id="lc-1-coef" src="img/number-0.png"/><img src="img/KATUN.png"/></div>
+              <div class=" table-cell glyph-buttons">
+                <button class="increase-button" data-action="increase" data-index=1>+</button>
+                <button class="decrease-button" data-action="decrease" data-index=1>-</button>
+              </div>
+            </div>
+          
+            <div class="table-row">
+              <div class="table-cell glyph-buttons">
+                <button class="decrease-button" data-action="decrease" data-index=2>-</button>
+                <button class="increase-button" data-action="increase" data-index=2>+</button>
+              </div>
+              <div class="table-cell glyph" id="tun-glyph"><img id="lc-2-coef" src="img/number-0.png"/><img src="img/TUN.png"/></div>
+              <div class="table-cell glyph" id="uinal-glyph"><img id="lc-3-coef" src="img/number-0.png"/><img src="img/UINAL.png"/></div>
+              <div class="table-cell glyph-buttons">
+                <button class="increase-button" data-action="increase" data-index=3>+</button>
+                <button class="decrease-button" data-action="decrease" data-index=3>-</button>
+              </div>
+            </div>
+          
+            <div class="table-row">
+              <div class="table-cell glyph-buttons">
+                <button class="decrease-button" data-action="decrease" data-index=4>-</button>
+                <button class="increase-button" data-action="increase" data-index=4>+</button>
+              </div>
+              <div class="table-cell glyph" id="kin-glyph"><img id="lc-4-coef" src="img/number-0.png"/><img src="img/KIN.png"/></div>
+              <div class="table-cell glyph" id="tzolkin-glyph"><img id="tzolkin-coef" src="img/number-4.png"/><img id="tzolkin-name" src="img/Ahau.png"/></div>
+              <div class="table-cell"></div>
+            </div>
+          
+            <div class="table-row">
+              <div class="table-cell"></div>
+              <div class="table-cell glyph"><img id="glyph-G" src="img/G9.png"></div>
+              <div class="table-cell glyph" id="haab-glyph"><img id="haab-coef" src="img/number-8.png"/><img id="haab-name" src="img/Cumku.png"/></div>
+              <div class="table-cell"></div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="widget long-count">
+        <form id="maya-form">
+          <h3>Long Count</h3>
+          <input type="number" id="lc-0" class="lc-index" min=0 max=19 value=0><span class="point"> •</span>
+          <input type="number" id="lc-1" class="lc-index" min=0 max=19 value=0><span class="point"> •</span>
+          <input type="number" id="lc-2" class="lc-index" min=0 max=19 value=0><span class="point"> •</span>
+          <input type="number" id="lc-3" class="lc-index" min=0 max=17 value=0><span class="point"> •</span>
+          <input type="number" id="lc-4" class="lc-index" min=0 max=19 value=0>
+          <p class="label">Calendar Round</p>
+          <p class="calendar-round" id="calendar-round">4 Ahau 8 Cumku</p>
+        </form>
+      </div>
+      <div class="widget correlation">
+        <form id="corr-form">
+          <p class="label">Constant</p>
+          <input type="number" id="constant" min=0 value=584286>
+        </form>
+      </div>
+      <div class="widget gregorian-calendar">
+        <form id="greg-form">
+          <h3>Gregorian Calendar</h3>
+          <input type="number" id="greg-day" min=1 max=31 value=1>
+          <select class="month-select" id="greg-month">
+            <option value=0>Jan</option>
+            <option value=1>Feb</option>
+            <option value=2>Mar</option>
+            <option value=3>Apr</option>
+            <option value=4>May</option>
+            <option value=5>Jun</option>
+            <option value=6>Jul</option>
+            <option value=7 selected>Aug</option>
+            <option value=8>Sep</option>
+            <option value=9>Oct</option>
+            <option value=10>Nov</option>
+            <option value=11>Dec</option>
+          </select>
+          <input type="number" id="greg-year" min=1 value=2018>
+          <select class="era-select" id="greg-era">
+            <option value="BCE">BCE</option>
+            <option value="CE" selected>CE</option>
+          </select>
+        </form>
+      </div>
+      <div class="widget julian-calendar">
+        <form id="jul-form">
+          <h3>Julian Calendar</h3>
+          <input type="number" id="jul-day" min=1 max=31 value=1>
+          <select class="month-select" id="jul-month">
+            <option value=0>Jan</option>
+            <option value=1>Feb</option>
+            <option value=2>Mar</option>
+            <option value=3>Apr</option>
+            <option value=4>May</option>
+            <option value=5>Jun</option>
+            <option value=6>Jul</option>
+            <option value=7 selected>Aug</option>
+            <option value=8>Sep</option>
+            <option value=9>Oct</option>
+            <option value=10>Nov</option>
+            <option value=11>Dec</option>
+          </select>
+          <input type="number" id="jul-year" min=1 value=2018>
+          <select class="era-select" id="jul-era">
+            <option value="BCE">BCE</option>
+            <option value="CE" selected>CE</option>
+          </select>
+        </form>
+      </div>
+      <a class="button" href='index.html'>Menu</a>
+    </div>
+    <script src="js/longcount.js"></script>
+  </body>
+</html>

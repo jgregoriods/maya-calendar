@@ -1,0 +1,101 @@
+* {
+  font-family: 'Open Sans', sans-serif !important;
+  box-sizing: border-box;
+}
+html {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+body {
+  font-size: 4.5vw;
+  text-align: center;
+  background: url("../img/bgCopan.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  margin: 2vw;
+}
+.header {
+  text-align: center;
+  border-radius: 3px;
+  margin-bottom: 1vw;
+  background: #532337;
+  padding: 1vw;
+}
+.header p {
+  display: inline;
+  font-size: 5vw;
+  text-decoration: overline;
+  text-transform: uppercase;
+  font-weight: 100;
+  color: white;
+}
+.header img {
+  display: inline-block;
+  max-height: 7vw;
+}
+.main {
+  text-align: left;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5%;
+}
+.main p {
+  margin-top: 0;
+  color: white;
+  font-weight: lighter;
+}
+.main img {
+  margin-bottom: 1vw;
+  max-width: 100%;
+  border-radius: 3px;
+}
+.label {
+  display: inline-block;
+  background: #BC283E;
+  padding-left: 3%;
+  padding-right: 3%;
+  border-radius: 3px;
+  font-variant: small-caps;
+}
+.input {
+  display: inline-block;
+  background: white;
+  border: 1px solid #567379;
+  color: #567379;
+  padding-left: 3%;
+  padding-right: 3%;
+  border-radius: 3px;
+}
+b {
+  font-weight: 400;
+}
+.glyph-btns {
+  font-weight: bolder;
+  color: #BC283E;
+  border: 1px solid #BC283E;
+  border-radius: 3px;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+.button {
+  padding-top: 1.5vw;
+  padding-bottom: 1.5vw;
+  font-size: 5vw;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  border-radius: 5px;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.5);
+  border: solid 1px white;
+}
+.button:active, .button:focus {
+  background: #E3CB70;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
