@@ -1,12 +1,6 @@
 import MayaDate from './models/MayaDate.js';
 import * as convert from './actions/convert.js';
 
-/**
- * MAYA LONG COUNT: Tools for converting between Maya and Western dates
- * Author: Jonas Gregorio de Souza
- * Date: 24.08.2018
- */
-
 const dateController = (function() {
   return {
     addMayaDate: function(longCount) {
