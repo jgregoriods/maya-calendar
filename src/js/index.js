@@ -1,5 +1,7 @@
 import MayaDate from './models/MayaDate.js';
 import * as convert from './models/Convert.js';
+import * as mayaView from './views/mayaView.js';
+import * as westernView from './views/westernView';
 
 const dateController = (function() {
   return {
@@ -97,50 +99,9 @@ const UIController = (function() {
     },
 
     updateDisplay: function(currentMayaDate, currentGregorianDate, currentJulianDate) {
-      // Update glyph panel and Maya date
-      const currentLongCount = currentMayaDate.getLongCount();
-      const currentTzolkin = currentMayaDate.getTzolkin();
-      const currentHaab = currentMayaDate.getHaab();
-      const currentLordOfNight = currentMayaDate.getLordOfNight();
-
-      for (let i = 0; i < 5; i++) {
-        document.getElementById(`lc-${i}`).value = currentLongCount[i];
-        document.getElementById(`lc-${i}-coef`).src = `img/number-${currentLongCount[i]}.png`;
-      }
-      document.getElementById('calendar-round').innerHTML = `${currentTzolkin.join(' ')} ${currentHaab.join(' ')}`;
-      document.getElementById('tzolkin-coef').src = `img/number-${currentTzolkin[0]}.png`;
-      document.getElementById('tzolkin-name').src = `img/${currentTzolkin[1]}.png`;
-      document.getElementById('glyph-G').src = `img/G${currentLordOfNight}.png`;
-      if (currentHaab[0] === 0) {
-        document.getElementById('haab-coef').src = 'img/chum.png';
-      } else {
-        document.getElementById('haab-coef').src = `img/number-${currentHaab[0]}.png`;
-      }
-      document.getElementById('haab-name').src = `img/${currentHaab[1]}.png`;
-
-      // Update Gregorian date
-      let currentGregorianYear = currentGregorianDate.getFullYear();
-      const currentGregorianEra = (currentGregorianYear > 0) ? 'CE' : 'BCE';
-      if (currentGregorianEra === 'BCE') currentGregorianYear = -(currentGregorianYear - 1);
-      const currentGregorianMonth = currentGregorianDate.getMonth();
-      const currentGregorianDay = currentGregorianDate.getDate();
-
-      document.getElementById('greg-day').value = currentGregorianDay;
-      document.getElementById('greg-month').value = currentGregorianMonth;
-      document.getElementById('greg-year').value = currentGregorianYear;
-      document.getElementById('greg-era').value = currentGregorianEra;
-
-      // Update Julian date
-      let currentJulianYear = currentJulianDate.getFullYear();
-      const currentJulianEra = (currentJulianYear > 0) ? 'CE' : 'BCE';
-      if (currentJulianEra === 'BCE') currentJulianYear = -(currentJulianYear - 1);
-      const currentJulianMonth = currentJulianDate.getMonth();
-      const currentJulianDay = currentJulianDate.getDate();
-
-      document.getElementById('jul-day').value = currentJulianDay;
-      document.getElementById('jul-month').value = currentJulianMonth;
-      document.getElementById('jul-year').value = currentJulianYear;
-      document.getElementById('jul-era').value = currentJulianEra;
+      mayaView.renderGlyphs(currentMayaDate);
+      westernView.renderGregorian(currentGregorianDate);
+      westernView.renderJulian(currentJulianDate);
     }
   }
 })();

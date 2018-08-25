@@ -6,7 +6,7 @@ import MayaDate from './MayaDate.js';
 * @param {Array} vigesimalNumber The vigesimal Maya number to be converted. Must be an array of length 5.
 * @returns {number} A number in the decimal system.
 */
-export function toDecimal(vigesimalNumber) {
+export const toDecimal = (vigesimalNumber) => {
   const vigesimalPlaces = [144000, 7200, 360, 20, 1];
   let decimalNumber = 0;
 
@@ -23,7 +23,7 @@ export function toDecimal(vigesimalNumber) {
  * @param {number} decimalNumber The number to be converted.
  * @returns {Array} A Maya vigesimal number as an array of length 5.
  */
-export function toVigesimal(decimalNumber) {
+export const toVigesimal = (decimalNumber) => {
   const vigesimalPlaces = [144000, 7200, 360, 20, 1];
   const vigesimalNumber = [];
 
@@ -43,7 +43,7 @@ export function toVigesimal(decimalNumber) {
  * @param {number} constant The correlation constant to perform the conversion.
  * @returns {Date} A date object.
  */
-export function mayaToGreg(mayaDate, constant) {
+export const mayaToGreg = (mayaDate, constant) => {
   const daysFromJulianZero = toDecimal(mayaDate.getLongCount()) + constant;
 
   // Initially set the Gregorian Date to Julian Day Number Zero
@@ -60,7 +60,7 @@ export function mayaToGreg(mayaDate, constant) {
  * @param {number} constant The correlation constant to perform the conversion.
  * @returns {Object} An object of class MayaDate.
  */
-export function toMaya(gregorianDate, constant) {
+export const toMaya = (gregorianDate, constant) => {
   const julianZero = new Date (-4713, 10, 24);
   const daysFromJulianZero = Math.round((gregorianDate - julianZero) / 86400000);
   const daysFromMayaZero = daysFromJulianZero - constant;
@@ -74,7 +74,7 @@ export function toMaya(gregorianDate, constant) {
  * @param {Date} gregorianDate The date to be converted. Must be a Date object.
  * @returns {Date} A Date object representing a date in the Julian calendar.
  */
-export function toJulian(gregorianDate) {
+export const toJulian = (gregorianDate) => {
   // Last alignment between Gregorian and Julian calendars
   const calendarBase = new Date(200, 2, 1);
 
@@ -96,7 +96,7 @@ export function toJulian(gregorianDate) {
  * @param {Date} julianDate The date to be converted. Must be a Date object.
  * @returns {Date} A Date object representing a date in the Gregorian calendar.
  */
-export function julianToGreg(julianDate) {
+export const julianToGreg = (julianDate) => {
   // Last alignment between Gregorian and Julian calendars
   const calendarBase = new Date(200, 2, 1);
 
