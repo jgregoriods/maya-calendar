@@ -1,4 +1,4 @@
-import MayaDate from '../models/MayaDate.js';
+import MayaDate from './MayaDate.js';
 
 /**
 * Converts a vigesimal number in the Maya system to its decimal equivalent.

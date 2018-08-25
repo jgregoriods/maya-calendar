@@ -1,5 +1,5 @@
 import MayaDate from './models/MayaDate.js';
-import * as convert from './actions/convert.js';
+import * as convert from './models/Convert.js';
 
 const dateController = (function() {
   return {

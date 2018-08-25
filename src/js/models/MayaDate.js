@@ -1,4 +1,4 @@
-import * as convert from '../actions/convert.js';
+import * as convert from './Convert.js';
 
 const tzolkinNames = ['Imix', 'Ik', 'Akbal', 'Kan', 'Chicchan', 'Cimi', 'Manik', 'Lamat', 'Muluc', 'Oc', 'Chuen', 'Eb', 'Ben', 'Ix', 'Men', 'Cib', 'Caban', 'Edznab', 'Cauac', 'Ahau'];
 
