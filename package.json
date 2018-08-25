@@ -1,0 +1,20 @@
+{
+  "name": "katun",
+  "version": "1.0.0",
+  "description": "Maya Calendar Tools",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "keywords": [
+    "Maya",
+    "Calendar"
+  ],
+  "author": "Jonas Gregorio",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  }
+}
