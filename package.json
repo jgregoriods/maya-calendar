@@ -5,7 +5,8 @@
   "main": "longcount.js",
   "scripts": {
     "dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
   },
   "keywords": [
     "Maya",
@@ -15,6 +16,7 @@
   "license": "ISC",
   "devDependencies": {
     "webpack": "^4.17.1",
-    "webpack-cli": "^3.1.0"
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.6"
   }
 }

@@ -7,68 +7,76 @@ import * as constantView from './views/constantView.js';
 import { elements } from './views/base.js';
 
 const controller = (function() {
-  let currentGregorianDate, currentJulianDate, currentMayaDate, constant;
+
+  /**
+  * GLOBAL STATE OF THE APP
+  * - current Maya Date
+  * - current Correlation Constant
+  * - current Gregorian Date
+  * - current Julian Date
+  */
+  const state = {};
 
   function setupCurrentDates() {
-    currentGregorianDate = new Date();
-    currentJulianDate = convert.toJulian(currentGregorianDate);
-    constant = 584286;
-    currentMayaDate = convert.toMaya(currentGregorianDate, constant);
-    currentMayaDate.setTzolkin();
-    currentMayaDate.setHaab();
-    currentMayaDate.setLordOfNight();
+    state.gregDate = new Date();
+    state.julianDate = convert.toJulian(state.gregDate);
+    state.constant = 584286;
+    state.mayaDate = convert.toMaya(state.gregDate, state.constant);
+    state.mayaDate.setTzolkin();
+    state.mayaDate.setHaab();
+    state.mayaDate.setLordOfNight();
   };
 
   function setupEventListeners() {
-    elements.glyphPanel.addEventListener('click', (e) => {
+    elements.glyphPanel.addEventListener('click', e => {
       if (e.target.dataset['action']) {
         changeLongCount(e.target.dataset['action'], e.target.dataset['index']);
 
         ctrlUpdateGregFromMaya(); //
         ctrlUpdateJulianDate(); //
 
-        updateAllDisplays(currentMayaDate, currentGregorianDate, currentJulianDate);
+        updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
       }
     });
 
-    elements.mayaForm.addEventListener('input', (e) => {
+    elements.mayaForm.addEventListener('input', e => {
       changeMayaDate();
 
       ctrlUpdateGregFromMaya(); //
       ctrlUpdateJulianDate(); //
 
-      updateAllDisplays(currentMayaDate, currentGregorianDate, currentJulianDate);
+      updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
     });
 
-    elements.correlationForm.addEventListener('input', (e) => {
+    elements.correlationForm.addEventListener('input', e => {
 
       ctrlUpdateGregFromMaya(); //
       ctrlUpdateJulianDate(); //
 
-      updateAllDisplays(currentMayaDate, currentGregorianDate, currentJulianDate);
+      updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
     });
 
-    elements.gregorianForm.addEventListener('input', (e) => {
+    elements.gregorianForm.addEventListener('input', e => {
       changeGregorianDate();
       ctrlUpdateMayaDate();
       ctrlUpdateJulianDate();
 
-      updateAllDisplays(currentMayaDate, currentGregorianDate, currentJulianDate);
+      updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
     });
 
-    elements.julianForm.addEventListener('input', (e) => {
+    elements.julianForm.addEventListener('input', e => {
       changeJulianDate();
       
-      currentGregorianDate = convert.julianToGreg(currentJulianDate);
+      state.gregDate = convert.julianToGreg(state.julianDate);
 
       ctrlUpdateMayaDate();
 
-      updateAllDisplays(currentMayaDate, currentGregorianDate, currentJulianDate);
+      updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
     });
   };
 
   const changeLongCount = (action, index) => {
-    const newLongCount = currentMayaDate.getLongCount().slice();
+    const newLongCount = state.mayaDate.getLongCount().slice();
     if (action === 'increase' && index !== '3' && newLongCount[index] < 19) {
       newLongCount[index]++;
       } else if (action === 'increase' && index === '3' && newLongCount[index] < 17) {
@@ -76,49 +84,49 @@ const controller = (function() {
       } else if (action === 'decrease' && newLongCount[index] > 0) {
       newLongCount[index]--;
     }
-    currentMayaDate = new MayaDate(newLongCount);
-    currentMayaDate.setTzolkin();
-    currentMayaDate.setHaab();
-    currentMayaDate.setLordOfNight();
+    state.mayaDate = new MayaDate(newLongCount);
+    state.mayaDate.setTzolkin();
+    state.mayaDate.setHaab();
+    state.mayaDate.setLordOfNight();
   };
 
   const changeMayaDate = () => {
     const newLongCount = mayaView.getInput();
-    currentMayaDate = new MayaDate(newLongCount);
-    currentMayaDate.setTzolkin();
-    currentMayaDate.setHaab();
-    currentMayaDate.setLordOfNight();
+    state.mayaDate = new MayaDate(newLongCount);
+    state.mayaDate.setTzolkin();
+    state.mayaDate.setHaab();
+    state.mayaDate.setLordOfNight();
   };
 
   const changeGregorianDate = () => {
     const [newGregorianYear, newGregorianMonth, newGregorianDay] = gregorianView.getInput();
-    currentGregorianDate.setFullYear(newGregorianYear);
-    currentGregorianDate.setMonth(newGregorianMonth);
-    currentGregorianDate.setDate(newGregorianDay);
+    state.gregDate.setFullYear(newGregorianYear);
+    state.gregDate.setMonth(newGregorianMonth);
+    state.gregDate.setDate(newGregorianDay);
   };
 
   const changeJulianDate = () => {
     const [newJulianYear, newJulianMonth, newJulianDay] = julianView.getInput();
-    currentJulianDate.setFullYear(newJulianYear);
-    currentJulianDate.setMonth(newJulianMonth);
-    currentJulianDate.setDate(newJulianDay);
+    state.julianDate.setFullYear(newJulianYear);
+    state.julianDate.setMonth(newJulianMonth);
+    state.julianDate.setDate(newJulianDay);
   };
 
   function ctrlUpdateGregFromMaya() {
-    const currentConstant = constantView.getInput();
-    currentGregorianDate = convert.mayaToGreg(currentMayaDate, currentConstant);
+    state.constant = constantView.getInput();
+    state.gregDate = convert.mayaToGreg(state.mayaDate, state.constant);
   };
 
   function ctrlUpdateJulianDate() {
-    currentJulianDate = convert.toJulian(currentGregorianDate);
+    state.julianDate = convert.toJulian(state.gregDate);
   }
 
   function ctrlUpdateMayaDate() {
-    const currentConstant = constantView.getInput();
-    currentMayaDate = convert.toMaya(currentGregorianDate, currentConstant);
-    currentMayaDate.setTzolkin();
-    currentMayaDate.setHaab();
-    currentMayaDate.setLordOfNight();
+    state.constant = constantView.getInput();
+    state.mayaDate = convert.toMaya(state.gregDate, state.constant);
+    state.mayaDate.setTzolkin();
+    state.mayaDate.setHaab();
+    state.mayaDate.setLordOfNight();
   };
 
   const updateAllDisplays = (mayaDate, gregorianDate, julianDate) => {
@@ -130,7 +138,7 @@ const controller = (function() {
   return {
     init: function() {
       setupCurrentDates();
-      updateAllDisplays(currentMayaDate, currentGregorianDate, currentJulianDate);
+      updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
       setupEventListeners();
     }
   }
