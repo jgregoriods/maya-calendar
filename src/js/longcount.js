@@ -1,8 +1,5 @@
 import * as convert from './models/Convert';
-import * as mayaView from './views/mayaView';
-import * as gregorianView from './views/gregorianView';
-import * as julianView from './views/julianView';
-import * as constantView from './views/constantView';
+import * as view from './views/longcountView';
 import { elements } from './views/base';
 
 /**
@@ -24,15 +21,9 @@ const setupCurrentDates = () => {
   state.mayaDate.calculateLordOfNight();
 };
 
-const updateAllDisplays = (mayaDate, gregorianDate, julianDate) => {
-  mayaView.updateDisplay(mayaDate);
-  gregorianView.updateDisplay(gregorianDate);
-  julianView.updateDisplay(julianDate);
-};
-
 // Initialize the app
 setupCurrentDates();
-updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
+view.updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
 
 /**
  * Glyph Panel Controller
@@ -41,7 +32,7 @@ elements.glyphPanel.addEventListener('click', e => {
   if (e.target.dataset['action']) {
     changeLongCount(e.target.dataset['action'], e.target.dataset['index']);
     updateWesternDate();
-    updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
+    view.updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
   }
 });
 
@@ -51,7 +42,7 @@ elements.glyphPanel.addEventListener('click', e => {
 elements.mayaForm.addEventListener('input', e => {
   changeMayaDate();
   updateWesternDate();
-  updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
+  view.updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
 });
 
 /**
@@ -59,7 +50,7 @@ elements.mayaForm.addEventListener('input', e => {
  */
 elements.correlationForm.addEventListener('input', e => {
   updateWesternDate();
-  updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
+  view.updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
 });
 
 /**
@@ -69,7 +60,7 @@ elements.gregorianForm.addEventListener('input', e => {
   changeGregorianDate();
   updateMayaDate();
   state.julianDate = convert.toJulian(state.gregDate);
-  updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
+  view.updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
 });
 
 /**
@@ -79,7 +70,7 @@ elements.julianForm.addEventListener('input', e => {
   changeJulianDate();
   state.gregDate = convert.julianToGreg(state.julianDate);
   updateMayaDate();
-  updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
+  view.updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
 });
 
 const changeLongCount = (action, index) => {
@@ -98,7 +89,7 @@ const changeLongCount = (action, index) => {
 };
 
 const changeMayaDate = () => {
-  const newLongCount = mayaView.getInput();
+  const newLongCount = view.getMayaInput();
   state.mayaDate.setLongCount(newLongCount);
   state.mayaDate.calculateTzolkin();
   state.mayaDate.calculateHaab();
@@ -106,21 +97,21 @@ const changeMayaDate = () => {
 };
 
 const changeGregorianDate = () => {
-  const [newGregorianYear, newGregorianMonth, newGregorianDay] = gregorianView.getInput();
+  const [newGregorianYear, newGregorianMonth, newGregorianDay] = view.getGregInput();
   state.gregDate.setFullYear(newGregorianYear);
   state.gregDate.setMonth(newGregorianMonth);
   state.gregDate.setDate(newGregorianDay);
 };
 
 const changeJulianDate = () => {
-  const [newJulianYear, newJulianMonth, newJulianDay] = julianView.getInput();
+  const [newJulianYear, newJulianMonth, newJulianDay] = view.getJulianInput();
   state.julianDate.setFullYear(newJulianYear);
   state.julianDate.setMonth(newJulianMonth);
   state.julianDate.setDate(newJulianDay);
 };
 
 const updateMayaDate = () => {
-  state.constant = constantView.getInput();
+  state.constant = view.getConstInput();
   state.mayaDate = convert.toMaya(state.gregDate, state.constant);
   state.mayaDate.calculateTzolkin();
   state.mayaDate.calculateHaab();
@@ -128,7 +119,7 @@ const updateMayaDate = () => {
 };
 
 const updateWesternDate = () => {
-  state.constant = constantView.getInput();
+  state.constant = view.getConstInput();
   state.gregDate = convert.mayaToGreg(state.mayaDate, state.constant);
   state.julianDate = convert.toJulian(state.gregDate);
 };
