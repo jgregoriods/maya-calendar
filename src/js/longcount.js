@@ -6,54 +6,20 @@ import * as julianView from './views/julianView.js';
 import * as constantView from './views/constantView.js';
 import { elements } from './views/base.js';
 
-const dateController = (function() {
-  return {
-    addMayaDate: function(longCount) {
-      const newMayaDate = new MayaDate(longCount);
-
-      newMayaDate.setTzolkin();
-      newMayaDate.setHaab();
-      newMayaDate.setLordOfNight();
-
-      return newMayaDate;
-    },
-
-    getGregFromMaya: function(mayaDate, constant) {
-      return convert.mayaToGreg(mayaDate, constant);
-    },
-
-    getMayaDate: function(gregorianDate, constant) {
-      const mayaDate = convert.toMaya(gregorianDate, constant);
-
-      mayaDate.setTzolkin();
-      mayaDate.setHaab();
-      mayaDate.setLordOfNight();
-
-      return mayaDate;
-    },
-
-    getJulianFromGreg: function(gregorianDate) {
-      return convert.toJulian(gregorianDate);
-    },
-
-    getGregFromJulian: function(julianDate) {
-      return convert.julianToGreg(julianDate);
-    }
-  }
-})();
-
-const controller = (function(dateCtrl) {
+const controller = (function() {
   let currentGregorianDate, currentJulianDate, currentMayaDate, constant;
 
   function setupCurrentDates() {
     currentGregorianDate = new Date();
-    currentJulianDate = dateCtrl.getJulianFromGreg(currentGregorianDate);
+    currentJulianDate = convert.toJulian(currentGregorianDate);
     constant = 584286;
-    currentMayaDate = dateCtrl.getMayaDate(currentGregorianDate, constant);
+    currentMayaDate = convert.toMaya(currentGregorianDate, constant);
+    currentMayaDate.setTzolkin();
+    currentMayaDate.setHaab();
+    currentMayaDate.setLordOfNight();
   };
 
   function setupEventListeners() {
-
     elements.glyphPanel.addEventListener('click', (e) => {
       if (e.target.dataset['action']) {
         changeLongCount(e.target.dataset['action'], e.target.dataset['index']);
@@ -68,8 +34,8 @@ const controller = (function(dateCtrl) {
     elements.mayaForm.addEventListener('input', (e) => {
       changeMayaDate();
 
-      ctrlUpdateGregFromMaya();
-      ctrlUpdateJulianDate();
+      ctrlUpdateGregFromMaya(); //
+      ctrlUpdateJulianDate(); //
 
       updateAllDisplays(currentMayaDate, currentGregorianDate, currentJulianDate);
     });
@@ -92,7 +58,9 @@ const controller = (function(dateCtrl) {
 
     elements.julianForm.addEventListener('input', (e) => {
       changeJulianDate();
-      ctrlUpdateGregFromJulian();
+      
+      currentGregorianDate = convert.julianToGreg(currentJulianDate);
+
       ctrlUpdateMayaDate();
 
       updateAllDisplays(currentMayaDate, currentGregorianDate, currentJulianDate);
@@ -108,12 +76,18 @@ const controller = (function(dateCtrl) {
       } else if (action === 'decrease' && newLongCount[index] > 0) {
       newLongCount[index]--;
     }
-    currentMayaDate = dateCtrl.addMayaDate(newLongCount);
+    currentMayaDate = new MayaDate(newLongCount);
+    currentMayaDate.setTzolkin();
+    currentMayaDate.setHaab();
+    currentMayaDate.setLordOfNight();
   };
 
   const changeMayaDate = () => {
     const newLongCount = mayaView.getInput();
-    currentMayaDate = dateCtrl.addMayaDate(newLongCount);
+    currentMayaDate = new MayaDate(newLongCount);
+    currentMayaDate.setTzolkin();
+    currentMayaDate.setHaab();
+    currentMayaDate.setLordOfNight();
   };
 
   const changeGregorianDate = () => {
@@ -135,17 +109,16 @@ const controller = (function(dateCtrl) {
     currentGregorianDate = convert.mayaToGreg(currentMayaDate, currentConstant);
   };
 
-  function ctrlUpdateGregFromJulian() {
-    currentGregorianDate = dateCtrl.getGregFromJulian(currentJulianDate);
-  };
-
   function ctrlUpdateJulianDate() {
-    currentJulianDate = dateCtrl.getJulianFromGreg(currentGregorianDate);
+    currentJulianDate = convert.toJulian(currentGregorianDate);
   }
 
   function ctrlUpdateMayaDate() {
     const currentConstant = constantView.getInput();
-    currentMayaDate = dateCtrl.getMayaDate(currentGregorianDate, currentConstant);
+    currentMayaDate = convert.toMaya(currentGregorianDate, currentConstant);
+    currentMayaDate.setTzolkin();
+    currentMayaDate.setHaab();
+    currentMayaDate.setLordOfNight();
   };
 
   const updateAllDisplays = (mayaDate, gregorianDate, julianDate) => {
@@ -161,6 +134,6 @@ const controller = (function(dateCtrl) {
       setupEventListeners();
     }
   }
-})(dateController);
+})();
 
 controller.init();
