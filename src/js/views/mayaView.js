@@ -1,6 +1,6 @@
 import { elements } from './base.js';
 
-export const renderGlyphs = (mayaDate) => {
+export const updateDisplay = (mayaDate) => {
   const longCount = mayaDate.getLongCount();
   const tzolkin = mayaDate.getTzolkin();
   const haab = mayaDate.getHaab();
@@ -20,4 +20,14 @@ export const renderGlyphs = (mayaDate) => {
     elements.haabCoef.src = `img/number-${haab[0]}.png`;
   }
   elements.haabName.src = `img/${haab[1]}.png`;
+}
+
+export const getInput = () => {
+  const longCountArray = [];
+  elements.longCountInput.forEach(input => {
+    if (input.value) longCountArray.push(parseInt(input.value));
+    else longCountArray.push(0);
+  });
+
+  return longCountArray;
 }

@@ -1,4 +1,12 @@
 export const elements = {
+  glyphPanel: document.querySelector('.glyph-panel'),
+  mayaForm: document.getElementById('maya-form'),
+  correlationForm: document.getElementById('corr-form'),
+  gregorianForm: document.getElementById('greg-form'),
+  julianForm: document.getElementById('jul-form'),
+
+  longCountInput: document.querySelectorAll('.lc-index'),
+
   longCount: {
     0: document.getElementById('lc-0'),
     1: document.getElementById('lc-1'),
@@ -20,6 +28,8 @@ export const elements = {
   glyphG: document.getElementById('glyph-G'),
   haabCoef: document.getElementById('haab-coef'),
   haabName: document.getElementById('haab-name'),
+
+  constant: document.getElementById('constant'),
 
   gregorianDay: document.getElementById('greg-day'),
   gregorianMonth: document.getElementById('greg-month'),
