@@ -31,3 +31,4 @@ export const getInput = () => {
 
   return longCountArray;
 }
+
