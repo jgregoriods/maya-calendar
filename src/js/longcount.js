@@ -1,10 +1,10 @@
-import MayaDate from './models/MayaDate.js';
-import * as convert from './models/Convert.js';
-import * as mayaView from './views/mayaView.js';
-import * as gregorianView from './views/gregorianView.js';
-import * as julianView from './views/julianView.js';
-import * as constantView from './views/constantView.js';
-import { elements } from './views/base.js';
+import MayaDate from './models/MayaDate';
+import * as convert from './models/Convert';
+import * as mayaView from './views/mayaView';
+import * as gregorianView from './views/gregorianView';
+import * as julianView from './views/julianView';
+import * as constantView from './views/constantView';
+import { elements } from './views/base';
 
 const controller = (function() {
 

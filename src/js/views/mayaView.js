@@ -1,4 +1,4 @@
-import { elements } from './base.js';
+import { elements } from './base';
 
 export const updateDisplay = (mayaDate) => {
   const longCount = mayaDate.getLongCount();

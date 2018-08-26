@@ -1,4 +1,4 @@
-import { elements } from './base.js';
+import { elements } from './base';
 
 export const updateDisplay = (gregorianDate) => {
   let gregorianYear = gregorianDate.getFullYear();
