@@ -40,4 +40,4 @@ export const elements = {
   julianMonth: document.getElementById('jul-month'),
   julianYear: document.getElementById('jul-year'),
   julianEra: document.getElementById('jul-era')
-}
+};

@@ -69,4 +69,4 @@ export default class MayaDate {
   getLordOfNight() {
     return this.lordOfNight;
   }
-}
+};

@@ -15,7 +15,7 @@ export const toDecimal = (vigesimalNumber) => {
   }
 
   return decimalNumber;
-}
+};
 
 /**
  * Converts a decimal number to its equivalent in the Maya vigesimal system.
@@ -34,7 +34,7 @@ export const toVigesimal = (decimalNumber) => {
   }
 
   return vigesimalNumber;
-}
+};
 
 /**
  * Converts a Maya date to the Gregorian calendar.
@@ -51,7 +51,7 @@ export const mayaToGreg = (mayaDate, constant) => {
   gregorianDate.setDate(gregorianDate.getDate() + daysFromJulianZero);
 
   return gregorianDate;
-}
+};
 
 /**
  * Converts a Gregorian date to the Maya calendar.
@@ -66,7 +66,7 @@ export const toMaya = (gregorianDate, constant) => {
   const daysFromMayaZero = daysFromJulianZero - constant;
 
   return new MayaDate(toVigesimal(daysFromMayaZero));
-}
+};
 
 /**
  * Converts a Gregorian date to the Julian calendar.
@@ -88,7 +88,7 @@ export const toJulian = (gregorianDate) => {
   julianDate.setDate(gregorianDate.getDate() - daysToShift);
 
   return julianDate;
-}
+};
 
 /**
  * Converts a Julian date to the Gregorian calendar.
@@ -110,4 +110,4 @@ export const julianToGreg = (julianDate) => {
   gregorianDate.setDate(julianDate.getDate() + daysToShift);
 
   return gregorianDate;
-}
+};
