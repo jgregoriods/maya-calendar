@@ -10,5 +10,5 @@
     <icon src="img/icon.png" width="180" height="180" />
   </platform>
   <preference name="android-targetSdkVersion" value="26" />
-  <preference name="android-minSdkVersion" value="21" />
+  <preference name="android-minSdkVersion" value="18" />
 </widget>
