@@ -2,7 +2,8 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    longcount: ['babel-polyfill', './src/js/longcount.js']
+    longcount: './src/js/longcount.js',
+    dnumber: './src/js/dnumber.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

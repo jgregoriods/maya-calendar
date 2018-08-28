@@ -1,6 +1,6 @@
 import * as convert from './models/Convert';
 import * as view from './views/longcountView';
-import { elements } from './views/base';
+import { lcElements as elements } from './views/base';
 
 /**
  * GLOBAL STATE OF THE APP

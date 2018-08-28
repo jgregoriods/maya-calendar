@@ -1,4 +1,4 @@
-import { elements } from './base';
+import { lcElements as elements } from './base';
 
 export const getMayaInput = () => {
   const longCountArray = [];
