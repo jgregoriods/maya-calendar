@@ -2,7 +2,6 @@ import MayaDate from './MayaDate';
 
 /**
 * Converts a vigesimal number in the Maya system to its decimal equivalent.
-* 
 * @param {Array} vigesimalNumber The vigesimal Maya number to be converted. Must be an array of length 5.
 * @returns {number} A number in the decimal system.
 */
@@ -19,7 +18,6 @@ export const toDecimal = (vigesimalNumber) => {
 
 /**
  * Converts a decimal number to its equivalent in the Maya vigesimal system.
- * 
  * @param {number} decimalNumber The number to be converted.
  * @returns {Array} A Maya vigesimal number as an array of length 5.
  */
@@ -38,7 +36,6 @@ export const toVigesimal = (decimalNumber) => {
 
 /**
  * Converts a Maya date to the Gregorian calendar.
- * 
  * @param {Object} mayaDate The Maya date to be converted. Must be an object of class MayaDate.
  * @param {number} constant The correlation constant to perform the conversion.
  * @returns {Date} A date object.
@@ -55,7 +52,6 @@ export const mayaToGreg = (mayaDate, constant) => {
 
 /**
  * Converts a Gregorian date to the Maya calendar.
- * 
  * @param {Date} gregorianDate The date to be converted. Must be a Date object.
  * @param {number} constant The correlation constant to perform the conversion.
  * @returns {Object} An object of class MayaDate.
@@ -70,7 +66,6 @@ export const toMaya = (gregorianDate, constant) => {
 
 /**
  * Converts a Gregorian date to the Julian calendar.
- * 
  * @param {Date} gregorianDate The date to be converted. Must be a Date object.
  * @returns {Date} A Date object representing a date in the Julian calendar.
  */
@@ -92,7 +87,6 @@ export const toJulian = (gregorianDate) => {
 
 /**
  * Converts a Julian date to the Gregorian calendar.
- * 
  * @param {Date} julianDate The date to be converted. Must be a Date object.
  * @returns {Date} A Date object representing a date in the Gregorian calendar.
  */

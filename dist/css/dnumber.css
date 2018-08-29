@@ -1,6 +1,7 @@
 * {
   font-family: 'Open Sans', sans-serif !important;
   box-sizing: border-box;
+  margin: 0;
 }
 html {
   margin: 0;
@@ -13,11 +14,9 @@ body {
   background-size: cover;
   background-position: right top;
   background-attachment: fixed;
-  margin: 2vw;
 }
 .header {
   text-align: center;
-  border-radius: 3px;
   margin-bottom: 1vw;
   background: #532337;
   padding: 1vw;
@@ -34,38 +33,44 @@ body {
   display: inline-block;
   max-height: 7vw;
 }
+.content {
+  margin: 2vw;
+}
 .widget {
   text-align: center;
-  margin-bottom: 1.5vw;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding-left: 2vw;
-  padding-right: 2vw;
-  padding-top: 1vw;
-  padding-bottom: 1vw;
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2vw;
+  background-color: #BC283E;
+  /*background-color: rgba(255, 255, 255, 0.5);*/
+  /*padding-left: 2vw;
+  padding-right: 2vw;*/
+  padding-bottom: 0.3vw;
+  padding-top: 0.3vw;
+  box-shadow: 0px 0px 4px black;
 }
 .widget h3 {
   font-size: inherit;
   text-transform: uppercase;
   font-weight: 100;
   margin-top: 0;
-  margin-bottom: 1vw;
-  padding: 1vw;
+  margin-bottom: 0.5vw;
+  /* padding: 1vw; */
   background: #BC283E;
   color: white;
-  border-radius: 3px;
+  /* border-radius: 3px; */
 }
 .long-count input,
 .distance-number input {
+  text-align: center;
   font-size: inherit;
-  max-width: 16.5%;
+  min-width: 16.7%;
+  max-width: 16.7%;
   color: #567379;
   padding: 1vw;
-  border: 1px solid #567379;
-  border-radius: 3px;
+  border: none; /*1px solid #567379;
+  border-radius: 3px;*/
 }
 .point {
-  color: #567379;
+  color: /* #567379; */ white;
 }
 select {
   -webkit-appearance: none;
@@ -78,48 +83,65 @@ select::-ms-expand {
   overflow: hidden;
 }
 .distance-number select {
-  width: 16%;
+  min-width: 17%;
+  max-width: 17%;
   font-size: inherit;
+  text-align: center;
   color: #567379;
   padding: 1vw;
-  border: 1px solid #567379;
-  border-radius: 3px;
+  border: none/*1px solid #567379;
+  border-radius: 3px;*/
+}
+.table {
+  display: table;
+  border-collapse: collapse;
+  width: 80%;
+  margin: 0 auto;
+}
+.table-row {
+  display: table-row;
+}
+.table-cell {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.glyph-panel {
+
+  background: none !important;
+  box-shadow: none;
 }
 .glyph-panel img {
-  max-height: 10vw;
+  max-width: 15vw;
+  max-height: 11vw;
 }
 .add-btn {
   font-size: inherit;
-  padding: 0;
+  padding: 0.5vw;
   min-width: 20%;
   max-width: 20%;
   display: block;
-  color: #BC283E;
-  background: none;
-  border: 1px solid #BC283E;
+  color: white;
+  background: #8BB4AA;
+  border: none;
   outline: none;
-  border-radius: 3px;
   text-transform: uppercase;
   margin: 1% auto 0;
 }
 .add-btn:active {
-  color: white;
-  background: #BC283E;
-  border: 1px solid #BC283E;
+  color: #8BB4AA;
+  background: white;
   outline: none;
 }
 .date-list {
   display: table;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 2%;
+  width: 100%;
+}
+.date-item {
+  margin-top: 1vw;
+  padding: 2vw;
+  background: white;
   box-shadow: 0px 1px 4px black;
-}
-.row {
-  display: table-row;
-}
-.cell {
-  display: table-cell;
-  text-align: center;
 }
 .next-lc {
   text-decoration: overline;
@@ -130,13 +152,27 @@ select::-ms-expand {
 .prev-west {
   color: #567379;
 }
-
 [class*="col-"] {
   float: left;
   width: 100%;
   font-size: 4vw !important;
 }
 @media only screen and (min-width: 600px) {
+  .add-btn {
+    min-width: 10%;
+    max-width: 10%;
+  }
+  .long-count input {
+    min-width: 17.5%;
+    max-width: 17.5%;
+  }
+  .widget {
+    margin-bottom: 1.2vw;
+  }
+  .distance-number select {
+    min-width: 20%;
+    max-width: 20%;
+  }
   .header {
     padding: 0.5vw;
   }
@@ -145,6 +181,12 @@ select::-ms-expand {
   }
   .header img {
     max-height: 4vw;
+  }
+  .table {
+    width: 50%;
+  }
+  .glyph-panel img {
+    max-height: 7vw;
   }
   .button {
     width: 50%;
@@ -156,11 +198,12 @@ select::-ms-expand {
   .col-1 {
     width: 49%;
     font-size: 1.5vw !important;
-    margin-right: 1%;
+    margin-right: 0.5%;
   }
   .col-2 {
     font-size: 1.5vw !important;
-    width: 50%;
+    width: 49%;
+    margin-left: 0.5%;
   }
   .increase-button, .decrease-button {
     min-width: 35%;

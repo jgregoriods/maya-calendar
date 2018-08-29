@@ -19,12 +19,13 @@ const setupInitialDates = () => {
   state.prevMayaDate = convert.toMaya(state.prevWesternDate, 584286);
   state.prevMayaDate.calculateTzolkin();
   state.prevMayaDate.calculateHaab();
+  state.nextMayaDate = state.prevMayaDate;
 };
 
 // Initialize the app
 setupInitialDates();
 view.updateLCDisplay(state.prevMayaDate);
-view.updateGlyphDisplay(state.prevMayaDate, '+', state.prevMayaDate);
+view.updateGlyphDisplay(state.prevMayaDate, '+', [0, 0, 0, 0, 0], state.nextMayaDate);
 
 /**
  * LONGCOUNT CONTROLLER
@@ -33,7 +34,7 @@ elements.longCountForm.addEventListener('input', e => {
   const [operator, distanceNumber] = view.getDistNumberInput();
   changePrevDate();
   changeNextDate();
-  view.updateGlyphDisplay(state.prevMayaDate, operator, state.nextMayaDate);
+  view.updateGlyphDisplay(state.prevMayaDate, operator, distanceNumber, state.nextMayaDate);
 });
 
 const changePrevDate = () => {
@@ -55,5 +56,13 @@ const changeNextDate = () => {
 elements.distNumberForm.addEventListener('input', e => {
   const [operator, distanceNumber] = view.getDistNumberInput();
   changeNextDate();
-  view.updateGlyphDisplay(state.prevMayaDate, operator, state.nextMayaDate);
+  view.updateGlyphDisplay(state.prevMayaDate, operator, distanceNumber, state.nextMayaDate);
+});
+
+/**
+ * GLYPH PANEL CONTROLLER
+ */
+elements.addButton.addEventListener('click', e => {
+  const [operator, distanceNumber] = view.getDistNumberInput();
+  view.addToList(state.prevMayaDate, operator, distanceNumber, state.nextMayaDate);
 });

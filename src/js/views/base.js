@@ -76,5 +76,14 @@ export const dnElements = {
     haabName: document.getElementById('next-haab-name')
   },
 
-  indicatorGlyph: document.getElementById('indicator')
+  dnGlyphs: {
+    1: document.getElementById('katun-coef'),
+    2: document.getElementById('tun-coef'),
+    3: document.getElementById('uinal-coef'),
+    4: document.getElementById('kin-coef')
+  },
+  indicatorGlyph: document.getElementById('indicator'),
+  addButton: document.getElementById('add-btn'),
+
+  dateList: document.getElementById('date-list')
 };

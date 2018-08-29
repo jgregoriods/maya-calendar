@@ -12,64 +12,95 @@
     <div class="header">
       <p>Distance </p><img src="img/dn_icon.png"><p> Numbers</p>
     </div>
-    <div class="widget long-count col-1">
-      <form id="lc-form">
-        <h3>Long Count</h3>
-        <input type="number" id="lc-0" class="lc-index" min=0 max=19 value=0><span class="point"> •</span>
-        <input type="number" id="lc-1" class="lc-index" min=0 max=19 value=0><span class="point"> •</span>
-        <input type="number" id="lc-2" class="lc-index" min=0 max=19 value=0><span class="point"> •</span>
-        <input type="number" id="lc-3" class="lc-index" min=0 max=17 value=0><span class="point"> •</span>
-        <input type="number" id="lc-4" class="lc-index" min=0 max=19 value=0>
-      </form>
-    </div>
-    <div class="widget distance-number col-2">
-      <form id="dn-form">
-        <h3>Distance Number</h3>
-        <select id="operator">
-          <option value="+" selected>+</option>
-          <option value="-">-</option>
-        </select>&nbsp &nbsp
-        <input type="number" id="dn-1" class="dn-index" min=0 max=19 value=0><span class="point"> •</span>
-        <input type="number" id="dn-2" class="dn-index" min=0 max=19 value=0><span class="point"> •</span>
-        <input type="number" id="dn-3" class="dn-index" min=0 max=17 value=0><span class="point"> •</span>
-        <input type="number" id="dn-4" class="dn-index" min=0 max=19 value=0>
-      </form>
-    </div>
-    <div class="widget glyph-panel col-0">
-      <img id="prev-tzolkin-coef" src="img/number-4.png"/>
-      <img id="prev-tzolkin-name" src="img/Ahau.png"/>
-      <img id="prev-haab-coef" src="img/number-8.png"/>
-      <img id="prev-haab-name" src="img/Cumku.png"/>
-      <img id="kin-coef" src="img/number-19.png"/>
-      <img id="uinal-coef" src="img/uinal-1.png"/>
-      <img id="tun-coef" src="img/number-19.png"/>
-      <img src="img/TUN.png"/>
-      <img id="katun-coef" src="img/number-19.png"/>
-      <img src="img/KATUN.png"/>
-      <img id="indicator" src="img/ADI.png"/>
-      <img id="next-tzolkin-coef" src="img/number-4.png"/>
-      <img id="next-tzolkin-name" src="img/Ahau.png"/>
-      <img id="next-haab-coef" src="img/number-8.png"/>
-      <img id="next-haab-name" src="img/Cumku.png"/>
-      <button class="add-btn">add</span>
-    </div>
-    <div class="date-list col-0">
-      <div class="row">
-        <div class="cell longcount-date" id="lc-1">
-          <div class="prev-lc">0.0.0.0.0</div>
-          <div class="dn">+ 0.0.0.0</div>
-          <div class="next-lc">0.0.0.0.0</div>
+    <div class="content">
+      <div class="widget long-count col-1">
+        <form id="lc-form">
+          <h3>Long Count</h3>
+          <input type="number" id="lc-0" class="lc-index" min=0 max=19 value=0><span class="point"> •</span>
+          <input type="number" id="lc-1" class="lc-index" min=0 max=19 value=0><span class="point"> •</span>
+          <input type="number" id="lc-2" class="lc-index" min=0 max=19 value=0><span class="point"> •</span>
+          <input type="number" id="lc-3" class="lc-index" min=0 max=17 value=0><span class="point"> •</span>
+          <input type="number" id="lc-4" class="lc-index" min=0 max=19 value=0>
+        </form>
+      </div>
+      <div class="widget distance-number col-2">
+        <form id="dn-form">
+          <h3>Distance Number</h3>
+          <select id="operator">
+            <option value="+" selected>+</option>
+            <option value="-">-</option>
+          </select>&nbsp &nbsp
+          <input type="number" id="dn-1" class="dn-index" min=0 max=19 value=0><span class="point"> •</span>
+          <input type="number" id="dn-2" class="dn-index" min=0 max=19 value=0><span class="point"> •</span>
+          <input type="number" id="dn-3" class="dn-index" min=0 max=17 value=0><span class="point"> •</span>
+          <input type="number" id="dn-4" class="dn-index" min=0 max=19 value=0>
+        </form>
+      </div>
+      <div class="widget glyph-panel col-0">
+        <div class="table">
+          <div class="table-row">
+            <div class="table-cell">
+              <img id="prev-tzolkin-coef" src="img/number-4.png"/><img id="prev-tzolkin-name" src="img/Ahau.png"/>
+            </div>
+            <div class="table-cell">
+              <img id="prev-haab-coef" src="img/number-8.png"/><img id="prev-haab-name" src="img/Cumku.png"/>
+            </div>
+            <div class="table-cell">
+              &nbsp
+            </div>
+            <div class="table-cell">
+                &nbsp
+            </div>
+            <div class="table-cell">
+              <img id="katun-coef" src="img/number-19.png"/><img src="img/KATUN.png"/>
+            </div>
+            <div class="table-cell">
+              <img id="indicator" src="img/ADI.png"/>
+            </div>
+          </div>
+          <div class="table-row">
+            <div class="table-cell">
+              <img id="kin-coef" src="img/number-19.png"/><img id="uinal-coef" src="img/uinal-1.png"/>
+            </div>
+            <div class="table-cell">
+              <img id="tun-coef" src="img/number-19.png"/><img src="img/TUN.png"/>
+            </div>
+            <div class="table-cell">
+              &nbsp
+            </div>
+            <div class="table-cell">
+              &nbsp
+            </div>
+            <div class="table-cell">
+              <img id="next-tzolkin-coef" src="img/number-4.png"/><img id="next-tzolkin-name" src="img/Ahau.png"/>
+            </div>
+            <div class="table-cell">
+              <img id="next-haab-coef" src="img/number-8.png"/><img id="next-haab-name" src="img/Cumku.png"/>
+            </div>
+          </div>
         </div>
-        <div class="cell cr-date" id="cr-1">
-          <div class="prev-cr">4 Ahau 8 Cumku</div>
-          <div>&nbsp</div>
-          <div class="next-cr">4 Ahau 8 Cumku</div>
+        <button class="add-btn" id="add-btn">add</span>
+      </div>
+      <div class="date-list col-0" id="date-list">
+        <!--
+        <div class="row">
+          <div class="cell longcount-date" id="lc-1">
+            <div class="prev-lc">0.0.0.0.0</div>
+            <div class="dn">+ 0.0.0.0</div>
+            <div class="next-lc">0.0.0.0.0</div>
+          </div>
+          <div class="cell cr-date" id="cr-1">
+            <div class="prev-cr">4 Ahau 8 Cumku</div>
+            <div>&nbsp</div>
+            <div class="next-cr">4 Ahau 8 Cumku</div>
+          </div>
+          <div class="cell western-date" id="western-1">
+            <div class="prev-west">14 Aug 3114 BCE</div>
+            <div>&nbsp</div>
+            <div class="next-west">14 Aug 3114 BCE</div>
+          </div>
         </div>
-        <div class="cell western-date" id="western-1">
-          <div class="prev-west">14 Aug 3114 BCE</div>
-          <div>&nbsp</div>
-          <div class="next-west">14 Aug 3114 BCE</div>
-        </div>
+      -->
       </div>
     </div>
     <script src="./js/dnumber.bundle.js"></script>

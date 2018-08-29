@@ -45,8 +45,44 @@ const updateCalendarGlyphs = (mayaDate, order) => {
   calendarRound.haabName.src = `img/${haab[1]}.png`;
 };
 
-export const updateGlyphDisplay = (prevMayaDate, operator, nextMayaDate) => {
+const updateDistanceGlyphs = (distanceNumber) => {
+  let prefix;
+  for (let i = 1; i < 5; i++) {
+    if (i === 3) prefix = 'uinal-';
+    else prefix = 'number-';
+    elements.dnGlyphs[i].src = `img/${prefix}${distanceNumber[i]}.png`;
+  }
+};
+
+export const updateGlyphDisplay = (prevMayaDate, operator, distanceNumber, nextMayaDate) => {
   updateCalendarGlyphs(prevMayaDate, 'prev');
   updateCalendarGlyphs(nextMayaDate, 'next');
   elements.indicatorGlyph.src = (operator === '+') ? `img/PDI.png` : `img/ADI.png`;
+  updateDistanceGlyphs(distanceNumber);
+};
+
+export const addToList = (prevMayaDate, operator, distanceNumber, nextMayaDate) => {
+  let html = `
+  <div class="date-item">
+    <div class="table-row">
+      <div class="table-cell longcount-date" id="lc-1">
+        <div class="prev-lc">${prevMayaDate.getLongCount().join('.')}</div>
+        <div class="dn">${operator} ${distanceNumber.join('.')}</div>
+        <div class="next-lc">${nextMayaDate.getLongCount().join('.')}</div>
+      </div>
+      <div class="table-cell cr-date" id="cr-1">
+        <div class="prev-cr">${prevMayaDate.getTzolkin().join(' ')} ${prevMayaDate.getHaab().join(' ')}</div>
+        <div>&nbsp</div>
+        <div class="next-cr">${nextMayaDate.getTzolkin().join(' ')} ${nextMayaDate.getHaab().join(' ')}</div>
+      </div>
+      <div class="table-cell western-date" id="western-1">
+        <div class="prev-west">14 Aug 3114 BCE</div>
+        <div>&nbsp</div>
+        <div class="next-west">14 Aug 3114 BCE</div>
+      </div>
+    </div>
+  </div>
+  `;
+
+  elements.dateList.insertAdjacentHTML('beforeend', html);
 };

@@ -41,39 +41,51 @@ h2 {
   text-shadow: 0px 0px 10px black;
   text-decoration: overline;
 }
-
+.menu {
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 5px black;
+  font-size: 3vw;
+  color: white;
+  width: 80%;
+  margin: 0 auto;
+}
 .button {
-  font-size: 6vw;
-  font-weight: 300;
   color: white;
   text-decoration: none;
   display: block;
   margin: 10px auto;
-  width: 90%;
+  min-height: 20vw;
+  max-height: 20vw;
+  min-width: 20vw;
+  max-width: 20vw;
   padding: 2vw;
-  border-radius: 5px;
   text-transform: uppercase;
-  background: rgba(0, 0, 0, 0.5);
-  border: solid 1px white;
+  background: rgba(0, 0, 0, 0.7);
 }
-.button:active, .butto:focus {
+.button:active,
+.button:focus,
+.button:hover {
   background: #E3CB70;
   outline: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .button img {
   display: inline-block;
-  min-height: 7vw;
-  max-height: 7vw;
-  min-width: 7vw;
-  max-width: 7vw;
-  margin-right: 5vw;
+  min-height: 15vw;
+  max-height: 15vw;
+  min-width: 15vw;
+  max-width: 15vw;
 }
 [class*="col-"] {
   float: left;
-  width: 100%;
+  width: 33%;
 }
 @media only screen and (min-width: 500px) {
+  .menu {
+    width: 60%;
+    font-size: 2vw;
+  }
   .header img {
     max-width: 8vw;
   }
@@ -83,21 +95,16 @@ h2 {
   h2 {
     font-size: 3vw;
   }
-  .col-1 {
-    margin-left: 5%;
-    width: 45%;
-  }
-  .col-2 {
-    width: 45%;
-  }
   .button {
-    font-size: 3.5vw;
+    min-height: 12vw;
+    max-height: 12vw;
+    min-width: 12vw;
+    max-width: 12vw;
   }
   .button img {
-    min-height: 4vw;
-    max-height: 4vw;
-    min-width: 4vw;
-    max-width: 4vw;
-    margin-right: 3vw;
+    min-height: 8vw;
+    max-height: 8vw;
+    min-width: 8vw;
+    max-width: 8vw;
   }
 }
