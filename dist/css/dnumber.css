@@ -43,8 +43,8 @@ body {
   /*background-color: rgba(255, 255, 255, 0.5);*/
   /*padding-left: 2vw;
   padding-right: 2vw;*/
-  padding-bottom: 0.3vw;
-  padding-top: 0.3vw;
+  padding-bottom: 0.5vw;
+  padding-top: 0.5vw;
   box-shadow: 0px 0px 4px black;
 }
 .widget h3 {
