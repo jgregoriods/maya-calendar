@@ -1,4 +1,3 @@
-import MayaDate from './models/MayaDate';
 import nextDate from './models/Distance';
 import * as convert from './models/Convert';
 import * as view from './views/dnumberView';
