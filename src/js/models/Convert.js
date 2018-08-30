@@ -78,8 +78,8 @@ export const toJulian = (gregorianDate) => {
   const extraLeapYears = Math.floor((centuriesFromBase + 2) / 4);
   const daysToShift = centuriesFromBase - extraLeapYears;
 
-  const julianDate = new Date(gregorianDate.getFullYear(), gregorianDate.getMonth(),
-    gregorianDate.getDate());
+  const julianDate = new Date(gregorianDate.getFullYear(), gregorianDate.getMonth(), gregorianDate.getDate());
+  julianDate.setFullYear(gregorianDate.getFullYear());
   julianDate.setDate(gregorianDate.getDate() - daysToShift);
 
   return julianDate;
@@ -101,6 +101,7 @@ export const julianToGreg = (julianDate) => {
 
   const gregorianDate = new Date(julianDate.getFullYear(), julianDate.getMonth(),
   julianDate.getDate());
+  gregorianDate.setFullYear(julianDate.getFullYear());
   gregorianDate.setDate(julianDate.getDate() + daysToShift);
 
   return gregorianDate;

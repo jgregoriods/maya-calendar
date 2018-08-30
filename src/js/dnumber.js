@@ -24,7 +24,7 @@ const setupInitialDates = () => {
 
 // Initialize the app
 setupInitialDates();
-view.updateLCDisplay(state.prevMayaDate);
+view.resetFormDisplay(state.prevMayaDate);
 view.updateGlyphDisplay(state.prevMayaDate, '+', [0, 0, 0, 0, 0], state.nextMayaDate);
 
 /**
@@ -64,5 +64,31 @@ elements.distNumberForm.addEventListener('input', e => {
  */
 elements.addButton.addEventListener('click', e => {
   const [operator, distanceNumber] = view.getDistNumberInput();
-  view.addToList(state.prevMayaDate, operator, distanceNumber, state.nextMayaDate);
+  changeWesternDates();
+  view.addToList(state.prevMayaDate, state.prevWesternDate, operator, distanceNumber, state.nextMayaDate, state.nextWesternDate);
+  resetDates();
+});
+
+const changeWesternDates = () => {
+  const prevGreg = convert.mayaToGreg(state.prevMayaDate, 584286);
+  const nextGreg = convert.mayaToGreg(state.nextMayaDate, 584286);
+  state.prevWesternDate = convert.toJulian(prevGreg);
+  state.nextWesternDate = convert.toJulian(nextGreg);
+};
+
+const resetDates = () => {
+  state.prevMayaDate = state.nextMayaDate;
+  view.resetFormDisplay(state.prevMayaDate);
+  const [operator, distanceNumber] = view.getDistNumberInput();
+  view.updateGlyphDisplay(state.prevMayaDate, operator, distanceNumber, state.nextMayaDate);
+};
+
+/**
+ * DATE LIST CONTROLLER
+ */
+elements.dateList.addEventListener('click', e => {
+  if (e.target.className === 'delete-btn') {
+    const item = e.target.closest('.date-item');
+    view.deleteFromList(item);
+  }
 });

@@ -1,20 +1,58 @@
+/**********
+* GENERAL
+**********/
+
 * {
   font-family: 'Open Sans', sans-serif !important;
   box-sizing: border-box;
   margin: 0;
 }
 html {
-  margin: 0;
   height: 100%;
   width: 100%;
+  margin: 0;
 }
 body {
   background: url("../img/bgPalenque.JPG");
+  background-attachment: fixed;
+  background-position: right top;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: right top;
-  background-attachment: fixed;
+}
 
+/**********
+* HEADER
+**********/
+
+.header {
+  background: #532337;
+  text-align: center;
+  margin-bottom: 1vw;
+  padding: 1vw;
+}
+.header p {
+  display: inline;
+  color: white;
+  font-size: 5vw;
+  font-weight: 100;
+  text-decoration: overline;
+  text-transform: uppercase;
+}
+.header img {
+  display: inline-block;
+  max-height: 7vw;
+}
+
+/**********
+* CONTENT
+**********/
+
+.content {
+  margin: 2vw;
+}
+.glyph-panel {
+  background: none !important;
+  box-shadow: none !important;
 }
 .table {
   display: table;
@@ -27,108 +65,93 @@ body {
 }
 .table-cell {
   display: table-cell;
-  vertical-align: middle;
   text-align: center;
+  vertical-align: middle;
 }
 .table img {
-  max-width: 16vw;
   max-height: 12vw;
+  max-width: 16vw;
 }
-.increase-button, .decrease-button {
-  text-align: center;
+.increase-button,
+.decrease-button {
+  display: inline-block;
+  background: #8BB4AA;
+  color: white;
   font-size: 5vw;
-  padding: 0;
+  text-align: center;
+  border: none;
+  outline: none;
   min-width: 40%;
   max-width: 40%;
-  display: inline-block;
-  color: white /* #BC283E*/;
-  background-color: #8BB4AA;
-  border: none; /* 1px solid #BC283E; */
-  outline: none;
   padding-left: 1vw;
   padding-right: 1vw;
-  /*border-radius: 3px;*/
 }
-.increase-button:active, .decrease-button:active {
-  color: #8FAAAF;
+.increase-button:active,
+.decrease-button:active {
   background: white;
-  /*border: 1px solid #BC283E;*/
+  color: #8FAAAF;
   outline: none;
 }
 .widget {
+  background: #BC283E;
   text-align: center;
   margin-bottom: 2vw;
-  background-color: #BC283E;
-  /*background-color: rgba(255, 255, 255, 0.5);*/
-  /*padding-left: 2vw;
-  padding-right: 2vw;*/
-  padding-bottom: 0.5vw;
   padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
   box-shadow: 0px 0px 4px black;
 }
-.glyph-panel {
-  background: none !important;
-  box-shadow: none;
-}
 .widget h3 {
+  color: white;
   font-size: inherit;
-  text-transform: uppercase;
   font-weight: 100;
+  text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 0.5vw;
-  /* padding: 1vw; */
-  background: #BC283E;
+}
+.long-count input {
+  color: #567379;
+  font-size: inherit;
+  text-align: center;
+  min-width: 16.7%;
+  max-width: 16.7%;
+  padding: 1vw;
+  border: none;
+}
+.point {
   color: white;
-  /* border-radius: 3px; */
 }
 .label {
+  display: inline-block;
+  color: white;
+  font-weight: 100;
+  text-transform: uppercase;
   min-width: 40%;
   max-width: 60%;
-  text-transform: uppercase;
-  font-weight: 100;
   padding: 1vw;
   margin: 0;
+}
+.calendar-round {
   display: inline-block;
-  /*background: #BC283E;*/
-  color: white;
-  border-radius: 3px;
+  background: white;
+  color: #567379;
+  min-width: 58%;
+  max-width: 58%;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 1vw;
 }
 #constant {
   min-width: 58%;
   max-width: 58%;
 }
-.long-count input {
+.correlation input,
+.gregorian-calendar input,
+.julian-calendar input {
+  color: #567379;
   text-align: center;
   font-size: inherit;
-  min-width: 16.7%;
-  max-width: 16.7%;
-  color: #567379;
+  border: none;
   padding: 1vw;
-  border: none; /*1px solid #567379;
-  border-radius: 3px;*/
-}
-.point {
-  color: /* #567379; */ white;
-}
-.calendar-round {
-  display: inline-block;
-  min-width: 58%;
-  max-width: 58%;
-  padding: 1vw;
-  color: #567379;
-  margin-top: 0;
-  margin-bottom: 0;
-  background: white;
-  /*border: 1px solid #567379;
-  border-radius: 3px;*/
-}
-.correlation input, .gregorian-calendar input, .julian-calendar input {
-  text-align: center;
-  font-size: inherit;
-  color: #567379;
-  padding: 1vw;
-  border: /* 1px solid #567379; */ none;
-  /*border-radius: 3px;*/
 }
 #greg-day, #jul-day {
   min-width: 21%;
@@ -137,6 +160,19 @@ body {
 #greg-year, #jul-year {
   min-width: 33%;
   max-width: 33%;
+}
+.gregorian-calendar select,
+.julian-calendar select {
+  color: #567379;
+  font-size: inherit;
+  text-align: center;
+  border: none;
+  padding: 1vw;
+}
+.month-select,
+.era-select {
+  min-width: 21%;
+  max-width: 21%;
 }
 select {
   -webkit-appearance: none;
@@ -148,100 +184,77 @@ select::-ms-expand {
   appearance: none;
   overflow: hidden;
 }
-.gregorian-calendar select, .julian-calendar select {
-  font-size: inherit;
-  text-align: center;
-  color: #567379;
-  padding: 1vw;
-  border: none/*1px solid #567379;
-  border-radius: 3px;*/
-}
-.month-select, .era-select {
-  min-width: 21%;
-  max-width: 21%;
-}
-.header {
-  text-align: center;
-  margin-bottom: 1vw;
-  background: #532337;
-  padding: 1vw;
-}
-.header p {
-  display: inline;
-  font-size: 5vw;
-  text-decoration: overline;
-  text-transform: uppercase;
-  font-weight: 100;
-  color: white;
-}
-.header img {
-  display: inline-block;
-  max-height: 7vw;
-}
-.content {
-  margin: 2vw;
-}
+
+/**********
+* BOTTOM
+**********/
+
 .button {
+  display: block;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 5vw;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+  margin-top: 3vw;
   padding-top: 2vw;
   padding-bottom: 2vw;
-  font-size: 5vw;
-  text-align: center;
-  color: white;
-  text-decoration: none;
-  display: block;
-  margin-top: 3vw;
-  width: 100%;
-  /*border-radius: 5px;*/
-  text-transform: uppercase;
-  background: rgba(0, 0, 0, 0.7);
-  /*border: solid 1px white;*/
 }
-.button:active, .button:focus, .button:hover {
+.button:active,
+.button:focus,
+.button:hover {
   background: #E3CB70;
   outline: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+/**********
+* RESPONSIVENESS
+**********/
+
 [class*="col-"] {
+  font-size: 4vw !important;
   float: left;
   width: 100%;
-  font-size: 4vw !important;
 }
 @media only screen and (min-width: 600px) {
-  .long-count input {
-    min-width: 17.5%;
-    max-width: 17.5%;
+  .col-1 {
+    width: 50%;
   }
-  .widget {
-    margin-bottom: 1.2vw;
+  .col-2 {
+    width: 50%;
+    font-size: 1.5vw !important;
   }
   .header {
     padding: 0.5vw;
   }
-  .header p {
-    font-size: 2.5vw;
-  }
   .header img {
     max-height: 4vw;
   }
-  .button {
-    width: 100%;
-    font-size: 2vw;
-    transform: translateX(-50%);
+  .header p {
+    font-size: 2.5vw;
   }
-  .col-1 {
-    width: 50%;
+  .widget {
+    margin-bottom: 1.2vw;
   }
   .glyph img {
     max-height: 8vw;
   }
   .increase-button, .decrease-button {
+    font-size: 2vw;
     min-width: 35%;
     max-width: 35%;
-    font-size: 2vw;
     margin: 0;
   }
-  .col-2 {
-    width: 50%;
-    font-size: 1.5vw !important;
+  .long-count input {
+    min-width: 17.5%;
+    max-width: 17.5%;
+  }
+  .button {
+    font-size: 2vw;
+    width: 100%;
+    transform: translateX(-50%);
   }
 }

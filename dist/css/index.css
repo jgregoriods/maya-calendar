@@ -1,3 +1,7 @@
+/**********
+* GENERAL
+**********/
+
 * {
   font-family: 'Open Sans', sans-serif !important;
   box-sizing: border-box;
@@ -8,60 +12,70 @@ html {
   width: 100%;
 }
 body {
-  text-align: center;
   background: url("../img/bgCopan.jpg");
+  background-attachment: fixed;
+  background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center top;
-  background-attachment: fixed;
+  text-align: center;
   margin: 2vw;
 }
+
+/**********
+* HEADER
+**********/
+
 .header img {
   display: block;
   max-width: 14vw;
   margin: 0 auto;
 }
 h1 {
-  font-variant: small-caps;
   display: inline-block;
-  margin-top: 0;
-  font-size: 12vw;
-  text-align: center;
   color: white;
+  font-size: 12vw;
+  font-variant: small-caps;
   font-weight: 600;
+  text-align: center;
   text-shadow: 0px 0px 10px black;
   margin-bottom: 0;
+  margin-top: 0;
 }
 h2 {
+  color: white;
   font-size: 5.5vw;
-  text-transform: uppercase;
-  color: white;
   font-weight: lighter;
-  margin-top: 0;
-  text-shadow: 0px 0px 10px black;
-  text-decoration: overline;
-}
-.menu {
-  text-align: center;
   text-transform: uppercase;
-  text-shadow: 0px 0px 5px black;
-  font-size: 3vw;
+  text-decoration: overline;
+  text-shadow: 0px 0px 10px black;
+  margin-top: 0;
+}
+
+/**********
+* MENU
+**********/
+
+.menu {
   color: white;
+  font-size: 3vw;
+  text-align: center;
+  text-shadow: 0px 0px 5px black;
+  text-transform: uppercase;
   width: 80%;
   margin: 0 auto;
 }
 .button {
+  display: block;
+  background: rgba(0, 0, 0, 0.7);
   color: white;
   text-decoration: none;
-  display: block;
-  margin: 10px auto;
+  text-transform: uppercase;
   min-height: 20vw;
   max-height: 20vw;
   min-width: 20vw;
   max-width: 20vw;
+  margin: 10px auto;
   padding: 2vw;
-  text-transform: uppercase;
-  background: rgba(0, 0, 0, 0.7);
 }
 .button:active,
 .button:focus,
@@ -77,14 +91,19 @@ h2 {
   min-width: 15vw;
   max-width: 15vw;
 }
+
+/**********
+* RESPONSIVENESS
+**********/
+
 [class*="col-"] {
   float: left;
   width: 33%;
 }
 @media only screen and (min-width: 500px) {
   .menu {
-    width: 60%;
     font-size: 2vw;
+    width: 60%;
   }
   .header img {
     max-width: 8vw;

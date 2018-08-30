@@ -1,5 +1,7 @@
 import { dnElements as elements } from './base';
 
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 export const getLongCountInput = () => {
   const longCountArray = [];
   elements.longCountInput.forEach(input => {
@@ -19,11 +21,13 @@ export const getDistNumberInput = () => {
   return [operator, distNumberArray];
 };
 
-export const updateLCDisplay = (mayaDate) => {
+export const resetFormDisplay = (mayaDate) => {
   const longCount = mayaDate.getLongCount();
   for (let i = 0; i < 5; i++) {
     elements.longCount[i].value = longCount[i];
-  }
+  };
+  elements.distNumberInput.forEach(input => input.value = 0);
+  elements.operator.value = '+';
 };
 
 const updateCalendarGlyphs = (mayaDate, order) => {
@@ -61,13 +65,28 @@ export const updateGlyphDisplay = (prevMayaDate, operator, distanceNumber, nextM
   updateDistanceGlyphs(distanceNumber);
 };
 
-export const addToList = (prevMayaDate, operator, distanceNumber, nextMayaDate) => {
+const formatWesternDate = (date) => {
+  let year = (date.getFullYear() > 0) ? date.getFullYear() : (date.getFullYear() + 1);
+  let era = (date.getFullYear() > 0) ? 'CE' : 'BCE';
+  return [date.getDate(), months[date.getMonth()], year, era].join(' ');
+};
+
+const formatDistNumber = (distanceNumber) => {
+  let index = 0;
+  for (let i = 0; i < distanceNumber.length; i++) {
+    if (distanceNumber[i] > 0) break;
+    else index++;
+  }
+  return distanceNumber.slice(index).join('.');
+};
+
+export const addToList = (prevMayaDate, prevWesternDate, operator, distanceNumber, nextMayaDate, nextWesternDate) => {
   let html = `
   <div class="date-item">
     <div class="table-row">
       <div class="table-cell longcount-date" id="lc-1">
         <div class="prev-lc">${prevMayaDate.getLongCount().join('.')}</div>
-        <div class="dn">${operator} ${distanceNumber.join('.')}</div>
+        <div class="dn">${operator} ${formatDistNumber(distanceNumber)}</div>
         <div class="next-lc">${nextMayaDate.getLongCount().join('.')}</div>
       </div>
       <div class="table-cell cr-date" id="cr-1">
@@ -76,13 +95,24 @@ export const addToList = (prevMayaDate, operator, distanceNumber, nextMayaDate) 
         <div class="next-cr">${nextMayaDate.getTzolkin().join(' ')} ${nextMayaDate.getHaab().join(' ')}</div>
       </div>
       <div class="table-cell western-date" id="western-1">
-        <div class="prev-west">14 Aug 3114 BCE</div>
+        <div class="prev-west">${formatWesternDate(prevWesternDate)}</div>
         <div>&nbsp</div>
-        <div class="next-west">14 Aug 3114 BCE</div>
+        <div class="next-west">${formatWesternDate(nextWesternDate)}</div>
+      </div>
+      <div class="table-cell">
+        <div>
+          <button class="delete-btn">X</button>
+        </div>
+        <div>&nbsp</div>
+        <div>&nbsp</div>
       </div>
     </div>
   </div>
   `;
 
   elements.dateList.insertAdjacentHTML('beforeend', html);
+};
+
+export const deleteFromList = (item) => {
+  item.parentNode.removeChild(item);
 };
