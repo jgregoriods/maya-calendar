@@ -16,9 +16,9 @@ const setupInitialDates = () => {
   state.julianDate = convert.toJulian(state.gregDate);
   state.constant = 584286;
   state.mayaDate = convert.toMaya(state.gregDate, state.constant);
-  state.mayaDate.calculateTzolkin();
-  state.mayaDate.calculateHaab();
-  state.mayaDate.calculateLordOfNight();
+  state.mayaDate.calcTzolkin();
+  state.mayaDate.calcHaab();
+  state.mayaDate.calcLordOfNight();
 };
 
 // Initialize the app
@@ -46,9 +46,9 @@ const changeLongCount = (action, index) => {
     newLongCount[index]--;
   }
   state.mayaDate.setLongCount(newLongCount);
-  state.mayaDate.calculateTzolkin();
-  state.mayaDate.calculateHaab();
-  state.mayaDate.calculateLordOfNight();
+  state.mayaDate.calcTzolkin();
+  state.mayaDate.calcHaab();
+  state.mayaDate.calcLordOfNight();
 };
 
 const updateWesternDate = () => {
@@ -69,9 +69,9 @@ elements.mayaForm.addEventListener('input', e => {
 const changeMayaDate = () => {
   const newLongCount = view.getMayaInput();
   state.mayaDate.setLongCount(newLongCount);
-  state.mayaDate.calculateTzolkin();
-  state.mayaDate.calculateHaab();
-  state.mayaDate.calculateLordOfNight();
+  state.mayaDate.calcTzolkin();
+  state.mayaDate.calcHaab();
+  state.mayaDate.calcLordOfNight();
 };
 
 /**
@@ -102,9 +102,9 @@ const changeGregorianDate = () => {
 const updateMayaDate = () => {
   state.constant = view.getConstInput();
   state.mayaDate = convert.toMaya(state.gregDate, state.constant);
-  state.mayaDate.calculateTzolkin();
-  state.mayaDate.calculateHaab();
-  state.mayaDate.calculateLordOfNight();
+  state.mayaDate.calcTzolkin();
+  state.mayaDate.calcHaab();
+  state.mayaDate.calcLordOfNight();
 };
 
 /**

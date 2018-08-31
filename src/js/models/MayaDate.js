@@ -17,7 +17,7 @@ export default class MayaDate {
     return this.longCount;
   }
 
-  calculateTzolkin() {
+  calcTzolkin() {
     const numberOfDays = convert.toDecimal(this.longCount);
   
     // An offset of 4 to account for the base date of 4 Ahau
@@ -34,7 +34,7 @@ export default class MayaDate {
     return this.tzolkin;
   }
   
-  calculateHaab() {
+  calcHaab() {
     const numberOfDays = convert.toDecimal(this.longCount);
   
     // An offset of 348 is due to the base date of 8 Cumku
@@ -57,7 +57,7 @@ export default class MayaDate {
     return this.haab;
   }
 
-  calculateLordOfNight() {
+  calcLordOfNight() {
     const numberOfDays = convert.toDecimal(this.longCount);
     if (numberOfDays % 9 === 0) {
       this.lordOfNight = 9;

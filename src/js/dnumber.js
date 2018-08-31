@@ -7,7 +7,6 @@ import { dnElements as elements } from './views/base';
  * GLOBAL STATE OF THE APP
  * - Previous Maya Date
  * - Previous Western Date
- * - Distance Number
  * - Next Maya Date
  * - Next Western Date
  */
@@ -16,8 +15,8 @@ const state = {};
 const setupInitialDates = () => {
   state.prevWesternDate = new Date();
   state.prevMayaDate = convert.toMaya(state.prevWesternDate, 584286);
-  state.prevMayaDate.calculateTzolkin();
-  state.prevMayaDate.calculateHaab();
+  state.prevMayaDate.calcTzolkin();
+  state.prevMayaDate.calcHaab();
   state.nextMayaDate = state.prevMayaDate;
 };
 
@@ -39,8 +38,8 @@ elements.longCountForm.addEventListener('input', e => {
 const changePrevDate = () => {
   const newLongCount = view.getLongCountInput();
   state.prevMayaDate.setLongCount(newLongCount);
-  state.prevMayaDate.calculateTzolkin();
-  state.prevMayaDate.calculateHaab();
+  state.prevMayaDate.calcTzolkin();
+  state.prevMayaDate.calcHaab();
 };
 
 const changeNextDate = () => {

@@ -16,8 +16,8 @@ const nextDate = (prevMayaDate, operator, distNumber) => {
     numberOfDays = toDecimal(prevMayaDate.getLongCount()) - toDecimal(distNumber);
   }
   const nextMayaDate = new MayaDate(toVigesimal(numberOfDays));
-  nextMayaDate.calculateTzolkin();
-  nextMayaDate.calculateHaab();
+  nextMayaDate.calcTzolkin();
+  nextMayaDate.calcHaab();
   return nextMayaDate;
 };
 
