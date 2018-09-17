@@ -35,6 +35,8 @@ elements.longCountForm.addEventListener('input', e => {
   view.updateGlyphDisplay(state.prevMayaDate, operator, distanceNumber, state.nextMayaDate);
 });
 
+elements.longCountForm.addEventListener('input', e => e.preventDefault());
+
 const changePrevDate = () => {
   const newLongCount = view.getLongCountInput();
   state.prevMayaDate.setLongCount(newLongCount);
@@ -56,6 +58,8 @@ elements.distNumberForm.addEventListener('input', e => {
   changeNextDate();
   view.updateGlyphDisplay(state.prevMayaDate, operator, distanceNumber, state.nextMayaDate);
 });
+
+elements.distNumberForm.addEventListener('submit', e => e.preventDefault());
 
 /**
  * GLYPH PANEL CONTROLLER

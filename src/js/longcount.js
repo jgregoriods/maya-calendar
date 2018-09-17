@@ -29,6 +29,7 @@ view.updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
  * GLYPH PANEL CONTROLLER
  */
 elements.glyphPanel.addEventListener('click', e => {
+  e.preventDefault();
   if (e.target.dataset['action']) {
     changeLongCount(e.target.dataset['action'], e.target.dataset['index']);
     updateWesternDate();
@@ -61,6 +62,7 @@ const updateWesternDate = () => {
  * MAYA FORM CONTROLLER
  */
 elements.mayaForm.addEventListener('input', e => {
+  e.preventDefault();
   changeMayaDate();
   updateWesternDate();
   view.updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
@@ -82,6 +84,8 @@ elements.correlationForm.addEventListener('input', e => {
   view.updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
 });
 
+elements.correlationForm.addEventListener('submit', e => e.preventDefault());
+
 /**
  * GREGORIAN FORM CONTROLLER
  */
@@ -91,6 +95,8 @@ elements.gregorianForm.addEventListener('input', e => {
   state.julianDate = convert.toJulian(state.gregDate);
   view.updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
 });
+
+elements.gregorianForm.addEventListener('submit', e => e.preventDefault());
 
 const changeGregorianDate = () => {
   const [newGregorianYear, newGregorianMonth, newGregorianDay] = view.getGregInput();
@@ -116,6 +122,8 @@ elements.julianForm.addEventListener('input', e => {
   updateMayaDate();
   view.updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
 });
+
+elements.julianForm.addEventListener('input', e => e.preventDefault());
 
 const changeJulianDate = () => {
   const [newJulianYear, newJulianMonth, newJulianDay] = view.getJulianInput();
