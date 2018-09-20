@@ -14,7 +14,8 @@ const state = {};
 const setupInitialDates = () => {
   state.gregDate = new Date();
   state.julianDate = convert.toJulian(state.gregDate);
-  state.constant = 584286;
+  const storedConstant = window.localStorage.getItem('mayaCalendarCorrelation');
+  state.constant = storedConstant ? storedConstant : 584286;
   state.mayaDate = convert.toMaya(state.gregDate, state.constant);
   state.mayaDate.calcTzolkin();
   state.mayaDate.calcHaab();
@@ -24,6 +25,7 @@ const setupInitialDates = () => {
 // Initialize the app
 setupInitialDates();
 view.updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
+view.updateConstantDisplay(state.constant);
 
 /**
  * GLYPH PANEL CONTROLLER
@@ -80,6 +82,7 @@ const changeMayaDate = () => {
  * CORRELATION CONSTANT CONTROLLER
  */
 elements.correlationForm.addEventListener('input', e => {
+  window.localStorage.setItem('mayaCalendarCorrelation', +view.getConstInput());
   updateWesternDate();
   view.updateAllDisplays(state.mayaDate, state.gregDate, state.julianDate);
 });

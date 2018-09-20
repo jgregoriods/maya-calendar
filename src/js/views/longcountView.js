@@ -77,6 +77,10 @@ const updateMayaDisplay = (mayaDate) => {
   elements.haabName.src = `img/${haab[1]}.png`;
 };
 
+export const updateConstantDisplay = (constant) => {
+  elements.constant.value = constant;
+}
+
 const updateGregDisplay = (gregorianDate) => {
   let gregorianYear = gregorianDate.getFullYear();
   const gregorianEra = (gregorianYear > 0) ? 'CE' : 'BCE';
